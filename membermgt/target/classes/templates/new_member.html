@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/new_member.css}" rel="stylesheet"/>
+    <title>Member Information </title>
+    <style>
+        button a{
+        text-decoration: none;
+        color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Member Information</h2>
+    <form action="#" th:action="@{/add}" th:object="${member}" method="post">
+
+        <label for="firstName" >First Name:</label>
+        <input type="text" th:field="*{firstName}" id="firstName" name="firstName" required>
+
+        <label for="lastName" >Last Name:</label>
+        <input type="text" th:field="*{lastName}" id="lastName" name="lastName" required>
+
+        <label for="contactNum">Contact Number:</label>
+        <input type="text" th:field="*{contactNum}" id="contactNum" name="contactNum" required>
+
+        <label for="email">Email:</label>
+        <input type="email"  th:field="*{email}" id="email" name="email" required>
+
+        <label for="membType" >Membership Type:</label>
+        <select id="membType" th:field="*{membType}" name="membType" required>
+            <option value="Basic">Basic</option>
+            <option value="Premium">Premium</option>
+        </select>
+
+        <label for="joinDate">Join Date:</label>
+        <input type="date" th:field="*{joinDate}" id="joinDate" name="joinDate" required>
+
+        <label for="expDate">Expiration Date:</label>
+        <input type="date" th:field="*{expDate}" id="expDate" name="expDate" required>
+
+        <label for="membStatus">Membership Status:</label>
+        <select id="membStatus" th:field="*{membStatus}" name="membStatus" required>
+            <option value="Active">Active</option>
+            <option value="Expired">Expired</option>
+            <option value="Suspended">Suspended</option>
+        </select>
+
+        <button type="submit">Submit</button>
+        <button type="button"><a href="home">Back to Dashboard</a> </button>
+    </form>
+</div>
+</body>
+</html>
+

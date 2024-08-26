@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <title>Member Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/home.css}" rel="stylesheet"/>
+    <style>
+        body{
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-bottom: 200px;
+        }
+        .container{
+            margin-top: 70px;
+            padding: 20px;
+        }
+        .search-input{
+            width: 350px;
+        }
+
+        .filter{
+            height: 43px;
+        }
+
+        .filter-input{
+            color: #333333;
+            color: rgba(0, 0,0,0.5);
+        }
+        .filter select{
+            margin-right: 14px;
+            width: 60px;
+            cursor: pointer;
+        }
+
+        .filter{
+            width: 210px;
+        }
+
+        .filter-icon{
+            margin-left: 14px;
+        }
+
+        th {
+            background-color: #0c4077;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .add:hover{
+            background-color: #8281c0;
+            font-weight: bold;
+            transform: scale(1.03);
+            transition: all 0.3s ease 0s
+        }
+        .container_one {
+            margin: 50px 20px 30px 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container" align="center">
+    <h1>Member Management System</h1>
+
+    <div class="counts-container">
+        <div class="counts-1">
+            <span th:text="${totalCount}"></span>
+            <p>Total</p>
+        </div>
+        <div class="counts-2">
+            <span th:text="${activeCount}"></span>
+            <p>Active</p>
+        </div>
+        <div class="counts-3">
+            <span th:text="${expiredCount}"></span>
+            <p>Expired</p>
+        </div>
+        <div class="counts-4">
+            <span th:text="${suspendedCount}"></span>
+            <p>Suspended</p>
+        </div>
+    </div>
+
+        <div class="container_one">
+            <form action="#" th:action="@{/filter}" method="get">
+                <div class="filter">
+                    <span class="filter-icon material-symbols-outlined">tune</span>
+                    <p class="filter-input"> Sort by:</p>
+                    <select class="filter-input" name="category" onchange="this.form.submit()">
+                        <option selected class="selected" ></option>
+                        <option value="all">All Members</option>
+                        <option value="Active">Active Members</option>
+                        <option value="Expired">Expired Members</option>
+                        <option value="Suspended">Suspended Members</option>
+                        <option value="Basic">Basic Members</option>
+                        <option value="Premium">Premium Members</option>
+                    </select>
+                </div>
+            </form>
+
+                <form action="/search" method="get">
+                    <div class="search" align="center">
+                    <span class="search-icon material-symbols-outlined"> search </span>
+                    <input class="search-input" type="search" placeholder="Search" name="memberID">
+                    </div>
+                    <input type="hidden" name="memberNotFound" th:value="${memberNotFound}" />
+                </form>
+
+            <button class="add-input" type="button">
+            <div class="add">
+                <span class="add-icon material-symbols-outlined">person_add</span>
+                <a href="new">New Member</a>
+                </a>
+            </div>
+            </button>
+        </div>
+    <div th:if="${memberNotFound}" class="member-not-found">
+        <p>This member ID does not exist.</p>
+    </div>
+    <table cellpadding="10">
+        <thead>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Contact Number</th>
+        <th>Email</th>
+        <th>Member Type</th>
+        <th>Join Date</th>
+        <th>Expiry Date</th>
+        <th>Member Status</th>
+        <th>Options</th>
+        </thead>
+        <tbody>
+        <tr th:each="member: ${member}">
+            <td th:text="${member.memberID}"/>
+            <td th:text="${member.firstName}"/>
+            <td th:text="${member.lastName}"/>
+            <td th:text="${member.contactNum}"/>
+            <td th:text="${member.email}"/>
+            <td th:text="${member.membType}"/>
+            <td th:text="${member.joinDate}"/>
+            <td th:text="${member.expDate}"/>
+            <td th:text="${member.membStatus}"/>
+
+            <td>
+                <a th:href="@{/edit/{id}(id=${member.memberID})}"><button type="button" class="edit">Edit</button> </a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{/delete/{id}(id=${member.memberID})}"><button type="button" class="delete">Delete</button> </a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

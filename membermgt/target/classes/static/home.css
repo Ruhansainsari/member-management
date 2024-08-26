@@ -1,0 +1,250 @@
+body {
+    font-family: "Roboto Light", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url("images/img1.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow-x: hidden;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin-top: 20px;
+    max-width: 100%;
+    background-color: rgba(225, 225, 225, 0.44);
+}
+
+th, td {
+border: none;
+}
+
+tbody{
+    font-size: 14.5px;
+}
+
+thead {
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(50, 108, 168, 0.49);
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+a button {
+    width: 60px;
+    text-decoration: none;
+    border: none;
+    padding: 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit{
+    color: #fff;
+    background-color: #007bff;
+}
+
+.edit:hover {
+    background-color: #0056b3;
+    transition: all 0.3s ease 0s
+}
+
+.delete{
+    color: #c42d2d;
+    background-color: #fcfbfb;
+}
+
+.delete:hover {
+    background-color: #c42d2d;
+    color: #ffffff;
+    transition: all 0.3s ease 0s
+}
+
+.container{
+    background-color: rgba(255, 255, 255, 0.62);
+}
+.counts-container{
+    margin-top: 55px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.counts-1,
+.counts-2,
+.counts-3,
+.counts-4{
+    width: 150px;
+    padding: 27px 15px 15px 15px;
+    color: white;
+    border-radius: 15px;
+}
+
+.counts-container span{
+    font-size: 33px;
+}
+
+.counts-container p{
+    font-weight: bold;
+}
+
+.counts-1{
+    color:#333;
+    background: #e8e8e8;
+}
+
+.counts-2{
+    background-color: #30b930;
+}
+
+.counts-3{
+    background-color: #f84c4c;
+}
+
+.counts-4{
+    background-color: #f3e231;
+}
+
+.container_one{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.search{
+    --padding:14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding);
+    border-radius: 28px;
+    background-color: #f6f6f6;
+    transition: background 0.25s;
+}
+
+.search:focus-within{
+    background: #eeecec;
+}
+
+.search-input{
+    font-size: 16px;
+    color: #333333;
+    margin-left: var(--padding);
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 300px;
+}
+
+.search-input::placeholder,
+.search-icon{
+    color: rgba(0, 0,0,0.5);
+}
+
+.selected{
+    display: none;
+}
+
+.filter{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    background-color: #f6f6f6;
+    transition: background 0.25s;
+}
+
+.filter:focus-within{
+    background: #e3dfdf;
+}
+
+.filter-input p{
+    margin-left: 14px;
+    color: #333333;
+    color: rgba(0, 0,0,0.5);
+}
+
+.filter-input select{
+    margin-left: 8px;
+}
+.filter-input{
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+.filter-icon{
+    margin-right: 14px;
+    color: rgba(0, 0,0,0.5);
+}
+
+.add-input{
+    width: 200px;
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.add a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #333333;
+    margin-left: 14px;
+    outline: none;
+    border: none;
+    color: rgba(0, 0,0,0.5);
+}
+
+.add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #f6f6f6;
+}
+.add-icon{
+    color: rgba(0, 0,0,0.5);
+}
+
+.member-not-found p{
+    font-size: 20px;
+    color: #c42d2d;
+    font-weight: bold;
+}
+body{
+    font-family: "Roboto Light", sans-serif;
+}

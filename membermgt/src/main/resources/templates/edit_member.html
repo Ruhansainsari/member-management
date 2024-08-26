@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/new_member.css}" rel="stylesheet"/>
+
+    <title>Edit Member</title>
+    <style>
+        button a{
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Edit Member Information</h2>
+    <form action="#" th:action="@{/add}" th:object="${member}" method="post">
+
+        <label> Member ID: </label>
+        <input type="text" th:field="*{memberID}" readonly="readonly">
+
+        <label>First Name:</label>
+        <input type="text" th:field="*{firstName}" >
+
+        <label>Last Name:</label>
+        <input type="text" th:field="*{lastName}">
+
+        <label>Contact Number:</label>
+        <input type="text" th:field="*{contactNum}" >
+
+        <label >Email:</label>
+        <input type="email"  th:field="*{email}" >
+
+        <label >Membership Type:</label>
+        <select id="membType" th:field="*{membType}" >
+            <option value="Basic">Basic</option>
+            <option value="Premium">Premium</option>
+        </select>
+
+        <label>Join Date:</label>
+        <input type="date" th:field="*{joinDate}">
+
+        <label>Expiration Date:</label>
+        <input type="date" th:field="*{expDate}">
+
+        <label>Membership Status:</label>
+        <select id="membStatus" th:field="*{membStatus}">
+            <option value="Active">Active</option>
+            <option value="Expired">Expired</option>
+            <option value="Suspended">Suspended</option>
+        </select>
+
+        <button type="submit">Save</button>
+        <button type="button"><a href="/home">Back to Dashboard</a> </button>
+    </form>
+</div>
+</body>
+</html>
